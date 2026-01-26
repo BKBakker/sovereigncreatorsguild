@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sovereign Creators Guild — Your Industry Passport</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #f5f1e8;
+            --charcoal: #2b2b2b;
+            --deep-gold: #b8860b;
+            --soft-gold: #d4af37;
+            --burgundy: #6b1f2e;
+            --dark-burgundy: #4a1420;
+            --shadow-gold: rgba(184, 134, 11, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ornamental Header Bar */
+        .header-bar {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+            padding: 0.75rem 0;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            border-bottom: 1px solid var(--deep-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .header-bar span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section - Split Design */
+        .hero {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .hero-seal {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--charcoal) 50%, #1f1f1f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-seal::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        .seal-container {
+            position: relative;
+            z-index: 2;
+            max-width: 400px;
+            animation: floatIn 1.2s ease-out;
+        }
+
+        @keyframes floatIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .seal-container img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6))
+                    drop-shadow(0 0 40px rgba(184, 134, 11, 0.3));
+            animation: gentleRotate 20s linear infinite;
+        }
+
+        @keyframes gentleRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 6rem 4rem 4rem;
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            width: 2px;
+            height: 80%;
+            background: linear-gradient(to bottom, transparent, var(--deep-gold), transparent);
+        }
+
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+
+        h1 strong {
+            font-weight: 600;
+            color: var(--burgundy);
+        }
+
+        .subtitle {
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: #5a5a5a;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+
+        /* Value Propositions */
+        .value-statements {
+            margin-bottom: 3rem;
+        }
+
+        .value-item {
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--cream);
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+
+        .value-item:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.9s forwards; }
+        .value-item:nth-child(2) { animation: fadeInUp 0.8s ease-out 1.1s forwards; }
+        .value-item:nth-child(3) { animation: fadeInUp 0.8s ease-out 1.3s forwards; }
+
+        .value-item:hover {
+            border-left-color: var(--deep-gold);
+            transform: translateX(5px);
+        }
+
+        .value-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--burgundy);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .value-item p {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        /* Feature Highlight Box */
+        .feature-highlight {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #1f1f1f 100%);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 2px;
+            border: 1px solid var(--deep-gold);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow-gold);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.5s forwards;
+        }
+
+        .feature-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--soft-gold), transparent);
+        }
+
+        .feature-highlight h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--soft-gold);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .feature-highlight p {
+            color: var(--cream);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.7s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
+            color: var(--soft-gold);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 2px solid var(--deep-gold);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(107, 31, 46, 0.4);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(107, 31, 46, 0.6);
+            border-color: var(--soft-gold);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-microcopy {
+            display: block;
+            margin-top: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: #7a7a7a;
+            font-style: italic;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer Badge */
+        .footer-badge {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #d0d0d0;
+            text-align: left;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.9s forwards;
+        }
+
+        .footer-badge .badge-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--deep-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-badge .badge-subtitle {
+            font-size: 1rem;
+            color: #6a6a6a;
+            font-style: italic;
+        }
+
+        /* Decorative Elements */
+        .decorative-corner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--deep-gold);
+            opacity: 0.3;
+        }
+
+        .corner-tl {
+            top: 2rem;
+            left: 2rem;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-br {
+            bottom: 2rem;
+            right: 2rem;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-seal {
+                min-height: 50vh;
+                padding: 3rem 2rem;
+            }
+
+            .hero-content {
+                padding: 3rem 2rem;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .decorative-corner {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .value-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .feature-highlight {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ornamental Header -->
+    <div class="header-bar">
+        <span>Founding Consortium Member: 2026</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Left Side: Guild Seal -->
+        <div class="hero-seal">
+            <div class="decorative-corner corner-tl"></div>
+            <div class="seal-container">
+                <img src="/mnt/project/Creators_Guild_Logo_BASE.png" alt="The Sovereign Creators Guild Seal">
+            </div>
+        </div>
+
+        <!-- Right Side: Content -->
+        <div class="hero-content">
+            <div class="decorative-corner corner-br"></div>
+            
+            <div class="eyebrow">By Invitation and Application</div>
+            
+            <h1>Your Industry <strong>Passport</strong>.</h1>
+            
+            <p class="subtitle">For professionals who refuse to be disposable.</p>
+
+            <!-- Value Statements -->
+            <div class="value-statements">
+                <div class="value-item">
+                    <h3>Financial Sovereignty</h3>
+                    <p>Earn market-rate gigs today. Build logic annuities that pay forever.</p>
+                </div>
+
+                <div class="value-item">
+                    <h3>Editorial Sovereignty</h3>
+                    <p>Liability insurance and forensic verification shield your satire from lawsuits.</p>
+                </div>
+
+                <div class="value-item">
+                    <h3>Creative Sovereignty</h3>
+                    <p>Graduate from 20% IP retention to 100% ownership. Keep your copyright. License your logic.</p>
+                </div>
+            </div>
+
+            <!-- Feature Highlight -->
+            <div class="feature-highlight">
+                <h4>The Humanity Dividend™</h4>
+                <p>While your copyright stays yours, your human reasoning signature becomes a licensed asset for AI calibration—generating passive royalties as the premium 'ground truth' for global AI labs.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-section">
+                <a href="mailto:bryan@newsload.ca?subject=Sovereign%20Creators%20Guild%3A%20Interested%20Party" class="cta-button">
+                    Apply for Induction
+                </a>
+                <span class="cta-microcopy">Submissions reviewed by the Editorial Board</span>
+            </div>
+
+            <!-- Footer Badge -->
+            <div class="footer-badge">
+                <div class="badge-text">Merit-Based Induction</div>
+                <div class="badge-subtitle">Sovereign Status is earned, not purchased. The Guild prioritizes craft over clout.</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
